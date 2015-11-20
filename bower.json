@@ -1,0 +1,16 @@
+{
+  "name": "default-project",
+  "version": "1.0.0",
+  "authors": [
+    "Andrey V. Kluev <andrey.kluev@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "normalize-css": "~3.0.3",
+    "slick.js": "~1.5.8",
+    "tooltipster": "~3.3.0",
+    "fancybox": "~2.1.5"
+  }
+}
