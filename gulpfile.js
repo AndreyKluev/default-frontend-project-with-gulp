@@ -23,7 +23,7 @@ gulp.task('build', function() {
 
     // JS
     gulp.src(['./assets/js/**/*.js'])
-        .pipe(gulp.dest('./public/js'));
+        .pipe(gulp.dest('./build/js'));
 
     // Compress images
     gulp.src('./assets/img/**/*')
