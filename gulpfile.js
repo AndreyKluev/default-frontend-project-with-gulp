@@ -25,7 +25,7 @@ gulp.task('build', function() {
     gulp.src(['./assets/js/**/*.js'])
         .pipe(gulp.dest('./build/js'));
 
-    // Compress images
+    // Optimization images
     gulp.src('./assets/img/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/img'));
