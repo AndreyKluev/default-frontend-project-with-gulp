@@ -5,10 +5,12 @@ var gulp = require('gulp'),
     csso = require('gulp-csso'),
     concat = require('gulp-concat'),
     includeHtml = require('gulp-include-html'),
-    updateFontello = require('fontello-update');
+    updateFontello = require('fontello-update'),
+    less = require('gulp-less'),
+    path = require('path');
 
 gulp.task('build', function() {
-    // Get fontello
+    // Get fontello icons
     updateFontello({
         config: './fontello.json',
         fonts: './build/font',
@@ -16,7 +18,10 @@ gulp.task('build', function() {
     });
 
     // CSS
-    gulp.src('./assets/css/*.css')
+    gulp.src('./assets/css/*.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
         .pipe(myth())
         .pipe(csso())
         .pipe(gulp.dest('./build/css/'));
