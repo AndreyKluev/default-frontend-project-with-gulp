@@ -2,8 +2,9 @@
 
 ## Capabilities ##
 
-* Minify CSS
+* Compile Less
 * Polyfills in CSS
+* Minify CSS
 * Image optimization
 * Update Fontello font & css
 * Build pages from blocks
@@ -11,11 +12,11 @@
 ## Dependencies ##
 Globally installed: 
 
+* bower
 * nodejs
 * npm
-* bower
-* gulp 
-* gulp-plugins: gulp-imagemin, gulp-myth, gulp-uglify, gulp-csso, gulp-concat, gulp-include-html, fontello-update
+* npm plugins: path, fontello-update, gulp
+* gulp-plugins: gulp-imagemin, gulp-myth, gulp-uglify, gulp-csso, gulp-concat, gulp-include-html, gulp-less
 
 ## Init project ##
 * `bower.json` - bower config
