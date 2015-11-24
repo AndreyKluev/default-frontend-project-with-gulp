@@ -30,4 +30,5 @@ run `bower update`
 See `assets/tmpl/example.html`
 
 ## Build project ##
-run `gulp build`
+run `gulp dev` for start develop mode
+run `gulp build` for build pages in production mode
