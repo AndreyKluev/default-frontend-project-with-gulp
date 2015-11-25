@@ -1,7 +1,17 @@
 {
-    "name": "default-project",
-    "version": "1.0.0",
-    "license": "MIT",
+    "name": "andreykluev/default-frontend-project-with-gulp",
+    "description": "default-frontend-project-with-gulp",
+    "license": "BSD-3-Clause",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "Andrey V. Kluev",
+            "email": "andrey.kluev@gmail.com"
+        }
+    ],
+    "support": {
+        "source": "http://gitlab.freematiq.com/andreykluev/default-frontend-project-with-gulp"
+    },
     "require": {
         "jquery": "~2.1.4",
         "modernizr": "~2.8.3",
