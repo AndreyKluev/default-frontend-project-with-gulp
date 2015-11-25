@@ -1,0 +1,15 @@
+{
+  "name": "default-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.freematiq.com:andreykluev/makeup-exchange-team.git"
+  },
+  "author": "Andrey V. Kluev <andrey.kluev@gmail.com>",
+  "license": "MIT"
+}
