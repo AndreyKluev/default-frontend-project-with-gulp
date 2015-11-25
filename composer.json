@@ -1,0 +1,21 @@
+{
+    "name": "andreykluev/default-frontend-project-with-gulp",
+    "description": "",
+    "type": "",
+    "keywords": [],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Andrey V. Kluev",
+            "email": "andrey.kluev@gmail.com"
+        }
+    ],
+    "require": {
+        "bower-asset/jquery": "*",
+        "bower-asset/modernizr": "*",
+        "bower-asset/normalize-css": "*",
+        "bower-asset/slick.js": "*",
+        "bower-asset/tooltipster": "*",
+        "bower-asset/fancybox": "*"
+    }
+}
