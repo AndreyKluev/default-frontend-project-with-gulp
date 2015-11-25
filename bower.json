@@ -8,11 +8,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "jquery": "*",
-    "modernizr": "*",
-    "normalize-css": "*",
-    "slick.js": "*",
-    "tooltipster": "*",
-    "fancybox": "*"
+//    "jquery": "*",
+//    "modernizr": "*",
+//    "normalize-css": "*",
+//    "slick.js": "*",
+//    "tooltipster": "*",
+//    "fancybox": "*"
   }
 }
