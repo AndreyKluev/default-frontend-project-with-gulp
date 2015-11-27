@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     includeHtml = require('gulp-include-html'),
     updateFontello = require('fontello-update'),
     less = require('gulp-less'),
-    path = require('path');
+    path = require('path'),
+    watch = require('gulp-watch');
 
 // Get fontello icons
 gulp.task('fontello', function() {
@@ -27,14 +28,14 @@ gulp.task('images', function() {
 
 // Build pages
 gulp.task('pages', function() {
-    gulp.src('./assets/tmpl/*.html')
+    gulp.src('./assets/tmpl/**/*.html')
         .pipe(includeHtml())
         .pipe(gulp.dest('build/'));
 });
 
 // CSS
 gulp.task('css', function() {
-    gulp.src('./assets/css/*.less')
+    gulp.src('./assets/css/**/*.less')
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
@@ -52,20 +53,20 @@ gulp.task('js', function() {
 /* * */
 
 gulp.task('dev', function() {
-    gulp.watch('./assets/tmpl/**', function(event) {
+    watch('./assets/tmpl/**/*.html', function(event) {
         gulp.run('pages');
     });
 
-    gulp.watch('./assets/css/*.less', function(event) {
+    watch('./assets/css/**/*.less', function(event) {
         gulp.run('css');
     });
 
-    gulp.watch('./assets/js/**/*.js', function(event) {
+    watch('./assets/js/**/*.js', function(event) {
         gulp.run('js');
     });
 });
 
-gulp.task('build', function() {
+gulp.task('watch', function() {
     gulp.run('fontello');
     gulp.run('images');
     gulp.run('pages');

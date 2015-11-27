@@ -16,13 +16,13 @@ Globally installed:
 * nodejs
 * npm
 * npm plugins: path, fontello-update, gulp
-* gulp-plugins: gulp-imagemin, gulp-myth, gulp-uglify, gulp-csso, gulp-concat, gulp-include-html, gulp-less
+* gulp-plugins: gulp-imagemin, gulp-myth, gulp-uglify, gulp-csso, gulp-concat, gulp-include-html, gulp-less, gulp-watch
 
 ## Init project ##
 * `bower.json` - bower config
 * `fontello.json` - fontello config
 
-run `npm install gulp gulp-imagemin gulp-myth gulp-uglify gulp-csso gulp-concat gulp-include-html fontello-update`
+run `npm install gulp gulp-imagemin gulp-myth gulp-uglify gulp-csso gulp-concat gulp-include-html fontello-update gulp-less gulp-watch`
 
 run `bower update`
 
@@ -30,5 +30,5 @@ run `bower update`
 See `assets/tmpl/example.html`
 
 ## Build project ##
-run `gulp dev` for start develop mode
+run `gulp watch` for start develop mode
 run `gulp build` for build pages in production mode
