@@ -26,7 +26,7 @@ gulp.task('images', function() {
 
 // Build pages
 gulp.task('pages', function() {
-    gulp.src('./assets/tmpl/**/*.html')
+    gulp.src('./assets/tmpl/*.html')
         .pipe(includeHtml())
         .pipe(gulp.dest('build/'));
 });
