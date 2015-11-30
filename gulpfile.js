@@ -1,8 +1,6 @@
 var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     myth = require('gulp-myth'),
-    uglify = require('gulp-uglify'),
-    csso = require('gulp-csso'),
     concat = require('gulp-concat'),
     includeHtml = require('gulp-include-html'),
     updateFontello = require('fontello-update'),
@@ -40,7 +38,6 @@ gulp.task('css', function() {
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(myth())
-        .pipe(csso())
         .pipe(gulp.dest('./build/css/'));
 });
 
@@ -52,7 +49,7 @@ gulp.task('js', function() {
 
 /* * */
 
-gulp.task('dev', function() {
+gulp.task('watch', function() {
     watch('./assets/tmpl/**/*.html', function(event) {
         gulp.run('pages');
     });
@@ -66,7 +63,7 @@ gulp.task('dev', function() {
     });
 });
 
-gulp.task('watch', function() {
+gulp.task('build', function() {
     gulp.run('fontello');
     gulp.run('images');
     gulp.run('pages');

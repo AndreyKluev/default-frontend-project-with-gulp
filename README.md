@@ -4,7 +4,7 @@
 
 * Compile Less
 * Polyfills in CSS
-* Minify CSS
+* Minify JS & CSS (Disabled)
 * Image optimization
 * Update Fontello font & css
 * Build pages from blocks
@@ -16,13 +16,13 @@ Globally installed:
 * nodejs
 * npm
 * npm plugins: path, fontello-update, gulp
-* gulp-plugins: gulp-imagemin, gulp-myth, gulp-uglify, gulp-csso, gulp-concat, gulp-include-html, gulp-less, gulp-watch
+* gulp-plugins: gulp-imagemin, gulp-myth, gulp-concat, gulp-include-html, gulp-less, gulp-watch
 
 ## Init project ##
 * `bower.json` - bower config
 * `fontello.json` - fontello config
 
-run `npm install gulp gulp-imagemin gulp-myth gulp-uglify gulp-csso gulp-concat gulp-include-html fontello-update gulp-less gulp-watch`
+run `npm install gulp gulp-imagemin gulp-myth gulp-concat gulp-include-html fontello-update gulp-less gulp-watch`
 
 run `bower update`
 
