@@ -8,8 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.freematiq.com:andreykluev/makeup-exchange-team.git"
+    "url": "http://gitlab.freematiq.com/andreykluev/default-frontend-project-with-gulp"
   },
   "author": "Andrey V. Kluev <andrey.kluev@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "fontello-update": "^0.6.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-include-html": "^1.0.10",
+    "gulp-less": "^3.0.5",
+    "gulp-myth": "^1.1.0",
+    "gulp-watch": "^4.3.5"
+  }
 }
