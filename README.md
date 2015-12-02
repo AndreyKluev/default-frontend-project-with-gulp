@@ -10,19 +10,18 @@
 * Build pages from blocks
 
 ## Dependencies ##
-Globally installed: 
 
 * bower
 * nodejs
 * npm
-* npm plugins: path, fontello-update, gulp
-* gulp-plugins: gulp-imagemin, gulp-myth, gulp-concat, gulp-include-html, gulp-less, gulp-watch
+* npm plugins: **automatically updated**
+* gulp-plugins: **automatically updated**
 
 ## Init project ##
 * `bower.json` - bower config
 * `fontello.json` - fontello config
 
-run `npm install gulp gulp-imagemin gulp-myth gulp-concat gulp-include-html fontello-update gulp-less gulp-watch`
+run `npm install`
 
 run `bower update`
 
@@ -30,5 +29,7 @@ run `bower update`
 See `assets/tmpl/example.html`
 
 ## Build project ##
+
 run `gulp watch` for start develop mode
+
 run `gulp build` for build pages in production mode
