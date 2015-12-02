@@ -6,7 +6,16 @@ var gulp = require('gulp'),
     updateFontello = require('fontello-update'),
     less = require('gulp-less'),
     path = require('path'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    connect = require('gulp-connect');
+
+ // Start web-server
+gulp.task('connect', function() {
+  connect.server({
+    root: 'build',
+    livereload: true
+  });
+});
 
 // Get fontello icons
 gulp.task('fontello', function() {
@@ -21,14 +30,16 @@ gulp.task('fontello', function() {
 gulp.task('images', function() {
     gulp.src('./assets/img/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./build/img'));
+        .pipe(gulp.dest('./build/img'))
+	.pipe(connect.reload());
 });
 
 // Build pages
 gulp.task('pages', function() {
     gulp.src('./assets/tmpl/*.html')
         .pipe(includeHtml())
-        .pipe(gulp.dest('build/'));
+        .pipe(gulp.dest('build/'))
+	.pipe(connect.reload());
 });
 
 // CSS
@@ -38,29 +49,26 @@ gulp.task('css', function() {
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(myth())
-        .pipe(gulp.dest('./build/css/'));
+        .pipe(gulp.dest('./build/css/'))
+	.pipe(connect.reload());
 });
 
 // JS
 gulp.task('js', function() {
     gulp.src(['./assets/js/**/*.js'])
-        .pipe(gulp.dest('./build/js'));
+        .pipe(gulp.dest('./build/js'))
+	.pipe(connect.reload());
 });
 
 /* * */
 
-gulp.task('watch', function() {
-    watch('./assets/tmpl/**/*.html', function(event) {
-        gulp.run('pages');
-    });
+gulp.task('watch', ['connect'], function() {
+ 
+    gulp.watch('./assets/tmpl/**/*.html', ['pages']);
 
-    watch('./assets/css/**/*.less', function(event) {
-        gulp.run('css');
-    });
+    gulp.watch('./assets/css/**/*.less', ['css']);
 
-    watch('./assets/js/**/*.js', function(event) {
-        gulp.run('js');
-    });
+    gulp.watch('./assets/js/**/*.js', ['js']);
 });
 
 gulp.task('build', [
