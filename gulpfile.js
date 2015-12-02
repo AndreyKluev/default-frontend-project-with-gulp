@@ -63,10 +63,10 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('build', function() {
-    gulp.run('fontello');
-    gulp.run('images');
-    gulp.run('pages');
-    gulp.run('css');
-    gulp.run('js');
-});
+gulp.task('build', [
+    'fontello', 
+    'images',
+    'pages',
+    'css',
+    'js'
+]);
