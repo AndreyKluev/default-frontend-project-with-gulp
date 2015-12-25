@@ -7,15 +7,8 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     path = require('path'),
     watch = require('gulp-watch'),
-    connect = require('gulp-connect');
-
- // Start web-server
-gulp.task('connect', function() {
-  connect.server({
-    root: 'build',
-    livereload: true
-  });
-});
+    connect = require('gulp-connect'),
+    batch = require('gulp-batch');
 
 // Get fontello icons
 gulp.task('fontello', function() {
@@ -29,52 +22,56 @@ gulp.task('fontello', function() {
 // Optimization images
 gulp.task('images', function() {
     gulp.src('./assets/img/**/*')
+        .pipe(watch('./assets/img/**/*'))
         .pipe(imagemin())
-        .pipe(gulp.dest('./build/img'))
-	.pipe(connect.reload());
+        .pipe(gulp.dest('./build/img'));
+
+    gulp.src('./assets/pic/**/*')
+        .pipe(watch('./assets/pic/**/*'))
+        .pipe(imagemin())
+        .pipe(gulp.dest('./build/pic'));
 });
 
 // Build pages
 gulp.task('pages', function() {
     gulp.src('./assets/tmpl/*.html')
+        .pipe(watch('./assets/tmpl/*.html'))
         .pipe(includeHtml())
         .pipe(gulp.dest('build/'))
-	.pipe(connect.reload());
+        .pipe(connect.reload());
 });
 
 // CSS
 gulp.task('css', function() {
     gulp.src('./assets/css/**/*.less')
+        .pipe(watch('./assets/css/**/*.less'))
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(myth())
         .pipe(gulp.dest('./build/css/'))
-	.pipe(connect.reload());
+        .pipe(connect.reload());
 });
 
 // JS
 gulp.task('js', function() {
     gulp.src(['./assets/js/**/*.js'])
+        .pipe(watch('./assets/js/**/*.js'))
         .pipe(gulp.dest('./build/js'))
-	.pipe(connect.reload());
+        .pipe(connect.reload());
 });
 
 /* * */
 
-gulp.task('watch', ['connect'], function() {
- 
-    gulp.watch('./assets/tmpl/**/*.html', ['pages']);
-
-    gulp.watch('./assets/css/**/*.less', ['css']);
-
-    gulp.watch('./assets/js/**/*.js', ['js']);
+// Start web-server
+gulp.task('connect', function() {
+    connect.server({
+        //root: ['build'],
+        port: 8000,
+        livereload: true
+    });
 });
 
-gulp.task('build', [
-    'fontello', 
-    'images',
-    'pages',
-    'css',
-    'js'
-]);
+gulp.task('watch', ['connect', 'build']);
+
+gulp.task('build', ['fontello', 'images', 'pages', 'css', 'js']);
