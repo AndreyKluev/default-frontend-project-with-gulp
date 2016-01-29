@@ -8,7 +8,15 @@ var gulp = require('gulp'),
     path = require('path'),
     watch = require('gulp-watch'),
     connect = require('gulp-connect'),
-    batch = require('gulp-batch');
+    batch = require('gulp-batch'),
+    iconfont = require('gulp-iconfont'),
+    rename = require("gulp-rename"),
+    consolidate = require('gulp-consolidate'),
+
+    runTimestamp = Math.round(Date.now()/1000);
+
+var fontName = 'symbols'; // set name of your symbol font
+var template = 'fontawesome-style'; // you can also choose 'foundation-style'
 
 // Get fontello icons
 gulp.task('fontello', function() {
@@ -17,6 +25,38 @@ gulp.task('fontello', function() {
         fonts: './build/font',
         css: './build/css'
     });
+});
+
+gulp.task('iconfont', function(){
+    return gulp.src(['assets/font-icons/*.svg'])
+        .pipe(iconfont({
+            fontName: fontName, // required
+            appendUnicode: true, // recommended option
+            formats: ['ttf', 'eot', 'woff', 'svg'], // default, 'woff2' and 'svg' are available
+            timestamp: runTimestamp, // recommended to get consistent builds when watching files
+        }))
+        .on('glyphs', function(glyphs) {
+            var options = {
+                glyphs: glyphs.map(function(glyph) {
+                    // this line is needed because gulp-iconfont has changed the api from 2.0
+                    return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
+                }),
+                fontName: fontName,
+                fontPath: '../font/', // set path to font (from your CSS file if relative)
+                className: 's' // set class name in your CSS
+            };
+            gulp.src('./assets/templates/' + template + '.css')
+                .pipe(consolidate('lodash', options))
+                .pipe(rename({ basename: fontName }))
+                .pipe(gulp.dest('./build/css/')); // set path to export your CSS
+
+            // if you don't need sample.html, remove next 4 lines
+            gulp.src('./assets/templates/' + template + '.html')
+                .pipe(consolidate('lodash', options))
+                .pipe(rename({ basename:'sample' }))
+                .pipe(gulp.dest('./build/')); // set path to export your sample HTML
+        })
+        .pipe(gulp.dest('./build/font/'));
 });
 
 // Optimization images
@@ -35,7 +75,7 @@ gulp.task('images', function() {
 // Build pages
 gulp.task('pages', function() {
     gulp.src('./assets/tmpl/*.html')
-        .pipe(watch('./assets/tmpl/*.html'))
+        .pipe(watch('./assets/tmpl/**/*.html'))
         .pipe(includeHtml())
         .pipe(gulp.dest('build/'))
         .pipe(connect.reload());
@@ -72,6 +112,6 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('watch', ['connect', 'build']);
+gulp.task('watch', ['build', 'connect']);
 
-gulp.task('build', ['fontello', 'images', 'pages', 'css', 'js']);
+gulp.task('build', ['fontello', 'iconfont', 'images', 'pages', 'css', 'js']);

@@ -9,7 +9,7 @@
   },
   "author": "Andrey V. Kluev <andrey.kluev@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.6.8",
     "fontello-update": "^0.6.1",
     "gulp": "^3.9.0",
@@ -20,6 +20,11 @@
     "gulp-include-html": "^1.0.10",
     "gulp-less": "^3.0.5",
     "gulp-myth": "^1.1.0",
-    "gulp-watch": "^4.3.5"
-  }
+    "gulp-watch": "^4.3.5",
+    "gulp-iconfont": "^5.0.1",
+    "gulp-consolidate": "^0.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sketch": "^0.1.0"
+  },
+  "devDependencies": {}
 }
