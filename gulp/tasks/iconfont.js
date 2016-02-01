@@ -24,7 +24,7 @@ gulp.task('iconfont', function(){
                     return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
                 }),
                 fontName: config.fontName,
-                fontPath: config.destFontsDir,//'../font/',
+                fontPath: config.incFontsDir,//'../font/',
                 className: 's'
             };
 

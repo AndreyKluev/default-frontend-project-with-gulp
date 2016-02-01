@@ -35,6 +35,7 @@ module.exports = {
         cssTemplate: "fontawesome-style", // или "foundation-style"
         srcIconsDir: srcDir + "/font-icons",
         templatesDir: srcDir + "/templates",
+        incFontsDir: "../font",
         destFontsDir: destDir + "/font",
         destStylesDir: destDir + "/css",
         sampleTemplate: "fontawesome-style", // или "foundation-style"
