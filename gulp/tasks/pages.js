@@ -18,13 +18,7 @@ gulp.task('pages', function() {
 });
 
 gulp.task('watch-pages', function(){
-    var watcher = watch(config.pagesDir + '/**/*.html', batch(function (events, done) {
+    watch(config.pagesDir + '/**/*.html', batch(function (events, done) {
         gulp.start('pages', done);
     }));
-
-    watcher.on('unlink', function(filepath){
-        var filePathFromSrc = path.relative(path.resolve(config.pagesDir), filepath);
-        var destFilePath = path.resolve(config.destPagesDir, filePathFromSrc);
-        del.sync(destFilePath);
-    });
 });

@@ -31,7 +31,7 @@ gulp.task('build', ['clear'], function(){
 });
 
 // Здача для наблюдения за изменением
-gulp.task('watch', ['watch-less', 'watch-css', 'watch-js', 'watch-fontello', 'watch-iconfont', 'watch-images', 'watch-pages']);
+gulp.task('watch', ['watch-pages', 'watch-less', 'watch-css', 'watch-js', 'watch-fontello', 'watch-iconfont', 'watch-images']);
 
 // Дефолтная задача = задаче 'build'
 gulp.task('default', ['build']);

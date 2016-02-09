@@ -15,5 +15,5 @@ gulp.task('serve', function() {
         }
     });
 
-    browserSync.watch(config.destDir + '/**/*.*').on('change', browserSync.reload);
+    browserSync.watch(config.destDir + '/**/*').on('change', browserSync.reload);
 });
