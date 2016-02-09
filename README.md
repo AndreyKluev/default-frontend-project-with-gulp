@@ -7,6 +7,7 @@
 * Minify JS & CSS (Disabled)
 * Image optimization
 * Update Fontello font & css
+* Generate font & css from .svg icons
 * Build pages from blocks
 
 ## Dependencies ##
@@ -26,10 +27,10 @@ run `npm install`
 run `bower update`
 
 ## Use ##
-See `assets/tmpl/example.html`
+See `_source/tmpl/example.html`
 
 ## Build project ##
 
-run `gulp watch` for start develop mode
+run `gulp dev` for start develop mode
 
 run `gulp build` for build pages in production mode
