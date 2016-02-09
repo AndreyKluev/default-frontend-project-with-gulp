@@ -2,12 +2,14 @@
  * Created by Kluev A. V. <andrey.kluev@gmail.com>
  */
 
-var gulp = require('gulp'),
+var
+    gulp = require('gulp'),
     iconfont = require('gulp-iconfont'),
     rename = require("gulp-rename"),
-    consolidate = require('gulp-consolidate');
-
-var config = require('../config').iconfont,
+    consolidate = require('gulp-consolidate'),
+    watch = require('gulp-watch'),
+    batch = require('gulp-batch'),
+    config = require('../config').iconfont,
     runTimestamp = Math.round(Date.now()/1000);
 
 gulp.task('iconfont', function(){
@@ -39,4 +41,10 @@ gulp.task('iconfont', function(){
                 .pipe(gulp.dest(config.sampleDir));
         })
         .pipe(gulp.dest(config.destFontsDir));
+});
+
+gulp.task('watch-iconfont', function(){
+    watch(config.srcIconsDir + '/*.svg', batch(function (events, done) {
+        gulp.start('iconfont', done);
+    }));
 });

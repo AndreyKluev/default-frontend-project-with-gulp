@@ -2,10 +2,16 @@
  * Created by Kluev A. V. <andrey.kluev@gmail.com>
  */
 
-var destDir = "./build",
-    srcDir = "./src";
+var
+    gulpDir = "./gulp",
+    destDir = "./_public",
+    srcDir = "./_source";
 
 module.exports = {
+    gulpDir: gulpDir,
+    destDir: destDir,
+    srcDir: srcDir,
+
     // Конфиг для основных задач
     makeup: {
         lessDir: srcDir + "/less",
@@ -34,7 +40,7 @@ module.exports = {
         fontFormats: ["ttf", "eot", "woff", "svg"],
         cssTemplate: "fontawesome-style", // или "foundation-style"
         srcIconsDir: srcDir + "/font-icons",
-        templatesDir: srcDir + "/templates",
+        templatesDir: gulpDir + "/templates",
         incFontsDir: "../font",
         destFontsDir: destDir + "/font",
         destStylesDir: destDir + "/css",

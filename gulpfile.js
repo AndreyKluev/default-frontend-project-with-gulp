@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  gulpfile.js
  ===========
@@ -10,18 +12,29 @@
  when you run `gulp`.
  */
 
-var requireDir = require('require-dir');
+var
+    requireDir = require('require-dir'),
+    gulp = require('gulp');
 
 // Require all tasks in gulp/tasks, including subfolders
 requireDir('./gulp/tasks', { recurse: true });
 
-//// Start web-server
-//gulp.task('connect', function() {
-//    connect.server({
-//        //root: ['build'],
-//        port: 8000,
-//        livereload: true
-//    });
-//});
+// Основная задача для сборки проекта
+gulp.task('build', ['clear'], function(){
+    gulp.start('less');
+    gulp.start('css');
+    gulp.start('js');
+    gulp.start('fontello');
+    gulp.start('iconfont');
+    gulp.start('images');
+    gulp.start('pages');
+});
 
-//gulp.task('build', ['fontello', 'iconfont', 'images', 'pages', 'css', 'js']);
+// Здача для наблюдения за изменением
+gulp.task('watch', ['watch-less', 'watch-css', 'watch-js', 'watch-fontello', 'watch-iconfont', 'watch-images', 'watch-pages']);
+
+// Дефолтная задача = задаче 'build'
+gulp.task('default', ['build']);
+
+// Дев-режим = наблюдение и обновление в браузерах
+gulp.task('dev', ['watch', 'serve']);

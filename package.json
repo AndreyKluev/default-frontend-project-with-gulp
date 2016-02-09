@@ -1,5 +1,5 @@
 {
-  "name": "default-project",
+  "name": "default-frontend-project-with-gulp",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -11,6 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "bower": "^1.6.8",
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
     "fontello-update": "^0.6.1",
     "gulp": "^3.9.0",
     "gulp-batch": "^1.0.5",
@@ -27,5 +29,6 @@
     "gulp-watch": "^4.3.5",
     "require-dir": "^0.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+  }
 }
