@@ -17,6 +17,7 @@ gulp.task('iconfont', function(){
         .pipe(iconfont({
             fontName: config.fontName,
             appendUnicode: true,
+            normalize: true,
             formats: config.fontFormats,
             timestamp: runTimestamp // recommended to get consistent builds when watching files
         }))
@@ -27,7 +28,7 @@ gulp.task('iconfont', function(){
                 }),
                 fontName: config.fontName,
                 fontPath: config.incFontsDir,//'../font/',
-                className: 's'
+                className: config.iconClassName
             };
 
             gulp.src(config.templatesDir + '/' + config.cssTemplate + '.css')

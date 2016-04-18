@@ -37,6 +37,7 @@ module.exports = {
     // иконки будут браться, например тут http://www.flaticon.com/
     iconfont: {
         fontName: "icons",
+        iconClassName: "icon",
         fontFormats: ["ttf", "eot", "woff", "svg"],
         cssTemplate: "fontawesome-style", // или "foundation-style"
         srcIconsDir: srcDir + "/font-icons",
@@ -47,7 +48,7 @@ module.exports = {
         sampleTemplate: "fontawesome-style", // или "foundation-style"
         sampleDir: destDir,
         sampleFile: "icons-sample"
-    }
+    },
 
     //
     zip: {
