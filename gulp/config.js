@@ -48,4 +48,11 @@ module.exports = {
         sampleDir: destDir,
         sampleFile: "icons-sample"
     }
+
+    //
+    zip: {
+        srcFiles: [destDir + '/**/*', bowerDir + '/**/*'],
+        destDir: destDir,
+        zipFile: "archive.zip"
+    }
 };
