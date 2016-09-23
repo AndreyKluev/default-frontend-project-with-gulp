@@ -3,6 +3,7 @@
  */
 
 var
+    bowerDir = "./vendor",
     gulpDir = "./gulp",
     destDir = "./_public",
     srcDir = "./_source";

@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Page Title</title>
+
+    @@include('./blocks/_css.html')
+</head>
+<body>
+
+@@include('./blocks/_header.html')
+
+<section id="main" class="wrapper-100pr">
+    <div class="blc blc-1 bg-gray bg-image-rt" style="background-image:url(img/bg-01.jpg);">
+        <div class="wrapper">
+            @@include('./blocks/part-01.html')
+        </div>
+    </div>
+
+    <div class="blc blc-2 bg-white bg-image-lb" style="background-image:url(img/bg-02.jpg);">
+        <div class="wrapper">
+            @@include('./blocks/part-02.html')
+        </div>
+    </div>
+
+    <div class="blc blc-3 bg-gray bg-image-rb" style="background-image:url(img/bg-03.jpg);">
+        <div class="wrapper">
+            @@include('./blocks/part-03.html')
+        </div>
+    </div>
+
+    <div class="blc blc-4 bg-gray-top-gradient">
+        <div class="wrapper">
+            @@include('./blocks/part-04.html')
+        </div>
+    </div>
+
+    <div class="blc blc-5 bg-white bg-image-lt" style="background-image:url(img/bg-05.jpg);">
+        <div class="wrapper">
+            @@include('./blocks/part-05.html')
+        </div>
+    </div>
+
+    <div class="blc blc-6 bg-gray">
+        <div class="wrapper">
+            @@include('./blocks/part-06.html')
+        </div>
+    </div>
+</section>
+
+@@include('./blocks/_footer.html')
+
+@@include('./blocks/_popup.html')
+
+@@include('./blocks/_js.html')
+
+</body>
+</html>
